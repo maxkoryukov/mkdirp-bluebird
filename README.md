@@ -51,6 +51,9 @@ The option object will be directly passed to [mkdirp](https://github.com/substac
 
 [MIT License](LICENSE) &copy; Koryukov Maksim
 
+## Credits
+
+Thanks Ahmad Nassri for the sources of [mkdirp-promise](https://github.com/ahmadnassri/mkdirp-promise)
 
 [travis-url]: https://travis-ci.org/maxkoryukov/mkdirp-bluebird
 
