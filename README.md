@@ -1,36 +1,32 @@
-# mkdirp-bluebird [![version][npm-version]][npm-url] [![License][npm-license]][license-url]
+# mkdirp-bluebird
+
+[![Build Status](https://travis-ci.org/maxkoryukov/mkdirp-bluebird.svg?branch=master)][travis-url]
 
 [Promise] version of [mkdirp]:
 
 > Like mkdir -p, but in node.js!
 
-[![Build Status][travis-image]][travis-url]
-[![Downloads][npm-downloads]][npm-url]
-[![Code Climate][codeclimate-quality]][codeclimate-url]
-[![Coverage Status][codeclimate-coverage]][codeclimate-url]
-[![Dependencies][david-image]][david-url]
-
 ## Install
 
 ```sh
-npm install --save mkdirp-promise
+npm install --save mkdirp-bluebird
 ```
 
 ## API
 
 ```js
-var mkdirp = require('mkdirp-promise')
+var mkdirp = require('mkdirp-bluebird')
 ```
 
 ### mkdirp(dir, [, options])
 
-*pattern*: `String`  
-*options*: `Object` or `String`  
+*pattern*: `String`
+*options*: `Object` or `String`
 Return: `Object` ([Promise])
 
-When it finishes, it will be [*fulfilled*](http://promisesaplus.com/#point-26) with the first directory made that had to be created, if any.
+When it finishes, it will be [*fulfilled*](http://bluebirdjs.com/docs/working-with-callbacks.html) with the first directory made that had to be created, if any.
 
-When it fails, it will be [*rejected*](http://promisesaplus.com/#point-30) with an error as its first argument.
+When it fails, it will be [*rejected*](http://bluebirdjs.com/docs/working-with-callbacks.html) with an error as its first argument.
 
 ```js
 mkdirp('/tmp/foo/bar/baz')
@@ -50,23 +46,14 @@ The option object will be directly passed to [mkdirp](https://github.com/substac
 
 ## License
 
-[ISC License](LICENSE) &copy; [Ahmad Nassri](https://www.ahmadnassri.com/)
+[MIT License](LICENSE) &copy; Koryukov Maksim
 
-[license-url]: https://github.com/ahmadnassri/mkdirp-promise/blob/master/LICENSE
 
-[travis-url]: https://travis-ci.org/ahmadnassri/mkdirp-promise
-[travis-image]: https://img.shields.io/travis/ahmadnassri/mkdirp-promise.svg?style=flat-square
+[travis-url]: https://travis-ci.org/maxkoryukov/mkdirp-bluebird
 
-[npm-url]: https://www.npmjs.com/package/mkdirp-promise
-[npm-license]: https://img.shields.io/npm/l/mkdirp-promise.svg?style=flat-square
-[npm-version]: https://img.shields.io/npm/v/mkdirp-promise.svg?style=flat-square
-[npm-downloads]: https://img.shields.io/npm/dm/mkdirp-promise.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/mkdirp-bluebird
 
-[codeclimate-url]: https://codeclimate.com/github/ahmadnassri/mkdirp-promise
-[codeclimate-quality]: https://img.shields.io/codeclimate/github/ahmadnassri/mkdirp-promise.svg?style=flat-square
-[codeclimate-coverage]: https://img.shields.io/codeclimate/coverage/github/ahmadnassri/mkdirp-promise.svg?style=flat-square
-
-[david-url]: https://david-dm.org/ahmadnassri/mkdirp-promise
+[david-url]: https://david-dm.org/maxkoryukov/mkdirp-bluebird
 [david-image]: https://img.shields.io/david/ahmadnassri/mkdirp-promise.svg?style=flat-square
 
 [mkdirp]: https://github.com/substack/node-mkdirp
