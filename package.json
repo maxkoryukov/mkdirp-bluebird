@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "mkdirp-bluebird",
   "description": "Promise (bluebird) version of mkdirp",
   "author": "Koryukov Maksim <maxkoryukov@gmail.com>",
