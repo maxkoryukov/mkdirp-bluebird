@@ -1,15 +1,16 @@
-'use strict'
+'use strict';
 
-var promise = require('bluebird')
-var mkdirp = require('mkdirp')
+var Promise = require('bluebird');
+var mkdirp = require('mkdirp');
 
-module.exports = function (dir, opts) {
-	return new promise(function (resolve, reject) {
+exports = module.exports = function (dir, opts) {
+	return new Promise(function (resolve, reject) {
 		mkdirp(dir, opts, function (err, made) {
-			return err === null ? resolve(made) : reject(err)
+			if (err) {
+				reject(err);
+			} else {
+				resolve(made);
+			}
 		})
-	})
-	.catch(function (err) {
-		throw err
 	})
 }

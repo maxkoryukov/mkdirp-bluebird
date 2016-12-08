@@ -1,5 +1,26 @@
 .bithoundrc
-.jshintrc
-.travis.yml
+.eslintignore
+.eslintrc.js
+
 /test/*
-/tools/*
+
+README.md
+old/
+build/
+coverage/
+docs/
+examples/
+reports/
+support/
+test/
+
+# Node.js
+.npmignore
+node_modules/
+npm-debug.log
+
+# Git
+.git*
+
+# Utilities
+.travis.yml

@@ -1,28 +1,24 @@
-/* global beforeEach, afterEach, describe, it */
-
 'use strict'
 
 var mkdirpromise  = require('..')
+var fs            = require('fs')
 var path          = require('path')
 var rimraf        = require('rimraf')
 var mkdirp        = require('mkdirp')
 var _             = require('lodash')
-var debug         = require('debug')('mkdirp-bluebird.test');
 
-require('chai').should();
+var base          = path.join(__dirname, 'tmp')
 
-var base		= path.join('test', 'tmp')
+describe('mkdirp-blubird', () => {
+	beforeEach(function (done) {
+		mkdirp(base, done)
+	})
 
-beforeEach(function (done) {
-	mkdirp(base, done)
-})
+	afterEach(function (done) {
+		rimraf(base, done)
+	})
 
-afterEach(function (done) {
-	rimraf(base, done)
-})
-
-describe('node module', function () {
-	describe('create dirs', function () {
+	describe('normal case', function () {
 
 		_.times(5, function(count){
 			it('should successfully create a directory tree. Sample: ' + (count+1), function (done) {
@@ -45,11 +41,9 @@ describe('node module', function () {
 					.wrap(_.spread(path.join))
 					.value()();
 
-				debug('SAMPLE DIR:', file);
-
 				mkdirpromise(file).then(function (made) {
 					// should call promise with first-level directory created:
-					made.should.equal(path.resolve(path.join(base, subdirs[0])))
+					expect(made).equal(path.resolve(path.join(base, subdirs[0])))
 
 					done();
 				})
@@ -57,17 +51,27 @@ describe('node module', function () {
 		});
 	})
 
-	it('should catch thrown errors', function (done) {
-		mkdirpromise(true).catch(function (err) {
-			err.should.match(/^TypeError/)
-			done()
+	describe('should REJECT', () => {
+		it('on path is not a string', function () {
+			return expect(mkdirpromise(true))
+				.to.eventually
+				.be.rejected
+				.and.be.an.instanceOf(TypeError)
+			;
 		})
-	})
 
-	it('should catch errors', function (done) {
-		mkdirpromise(path.join('test', 'index.js', 'foo')).catch(function (err) {
-			err.code.should.equal('ENOTDIR')
-			done()
+		it('on path containing existing FILE', () => {
+
+			let filePath = path.join(base, 'plain-file.txt')
+			fs.closeSync(fs.openSync(filePath, 'w'));
+			let dirOverFilePath = path.join(filePath, 'foo');
+
+			return expect(mkdirpromise(dirOverFilePath))
+				.to.eventually
+				.be.rejected
+				.and.be.an.instanceOf(Error)
+				.and.have.property('code', 'ENOTDIR')
+			;
 		})
 	})
 })

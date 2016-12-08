@@ -21,5 +21,19 @@ cache:
   directories:
     - node_modules
 
-after_script:
-  - if [ $SENDCOVERAGE ]; then ./tools/coverage-calc.sh; ./tools/coverage-send.sh && rm -rf ./coverage; fi
+before_install:
+  - npm config set spin false
+
+install:
+  - npm install
+  - npm install -g codecov
+  - npm install -g bithound
+
+script:
+  - npm run lint
+  - npm run coverage
+  - bithound check git@github.com:maxkoryukov/mkdirp-bluebird.git
+
+after_success:
+  # - if [ $SENDCOVERAGE ]; then codecov; fi
+  - codecov
