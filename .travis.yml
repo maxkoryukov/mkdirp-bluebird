@@ -15,7 +15,7 @@ node_js:
 matrix:
   include:
     - node_js: stable
-      env: SENDCOVERAGE=1
+      env: SENDCOVERAGE=1 RUNLINT=1
 
 cache:
   directories:
@@ -30,7 +30,7 @@ install:
   - npm install -g bithound
 
 script:
-  - npm run lint
+  - if [ $RUNLINT ]; then npm run lint; fi
   - npm run coverage
   - bithound check git@github.com:maxkoryukov/mkdirp-bluebird.git
 
