@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var mkdirpromise  = require('..')
 var fs            = require('fs')
@@ -9,7 +9,7 @@ var _             = require('lodash')
 
 var base          = path.join(__dirname, 'tmp')
 
-describe('mkdirp-blubird', () => {
+describe('mkdirp-blubird', function(){
 	beforeEach(function (done) {
 		mkdirp(base, done)
 	})
@@ -51,7 +51,7 @@ describe('mkdirp-blubird', () => {
 		});
 	})
 
-	describe('should REJECT', () => {
+	describe('should REJECT', function(){
 		it('on path is not a string', function () {
 			return expect(mkdirpromise(true))
 				.to.eventually
@@ -60,7 +60,7 @@ describe('mkdirp-blubird', () => {
 			;
 		})
 
-		it('on path containing existing FILE', () => {
+		it('on path containing existing FILE', function() {
 
 			let filePath = path.join(base, 'plain-file.txt')
 			fs.closeSync(fs.openSync(filePath, 'w'));

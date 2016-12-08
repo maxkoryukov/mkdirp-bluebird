@@ -18,7 +18,7 @@
       "url": "http://www.opensource.org/licenses/MIT"
     }
   ],
-  "main": "index",
+  "main": "lib",
   "keywords": [
     "mkdir",
     "mkdirp",
