@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/maxkoryukov/mkdirp-bluebird.svg?branch=master)][travis-url]
 [![npm](https://img.shields.io/npm/v/mkdirp-bluebird.svg)](https://www.npmjs.com/package/mkdirp-bluebird)
-[![Coverage Status](https://coveralls.io/repos/github/maxkoryukov/mkdirp-bluebird/badge.svg?branch=master)](https://coveralls.io/github/maxkoryukov/mkdirp-bluebird?branch=master)
+[![codecov](https://codecov.io/gh/maxkoryukov/mkdirp-bluebird/branch/master/graph/badge.svg)](https://codecov.io/gh/maxkoryukov/mkdirp-bluebird)
 [![bitHound Overall Score](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/badges/score.svg)](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird)
 [![bitHound Dependencies](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/badges/dependencies.svg)](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/master/dependencies/npm)
 [![Known Vulnerabilities](https://snyk.io/test/npm/mkdirp-bluebird/badge.svg)](https://snyk.io/test/npm/mkdirp-bluebird)

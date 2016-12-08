@@ -62,9 +62,9 @@ describe('mkdirp-blubird', function(){
 
 		it('on path containing existing FILE', function() {
 
-			let filePath = path.join(base, 'plain-file.txt')
+			var filePath = path.join(base, 'plain-file.txt')
 			fs.closeSync(fs.openSync(filePath, 'w'));
-			let dirOverFilePath = path.join(filePath, 'foo');
+			var dirOverFilePath = path.join(filePath, 'foo');
 
 			return expect(mkdirpromise(dirOverFilePath))
 				.to.eventually
