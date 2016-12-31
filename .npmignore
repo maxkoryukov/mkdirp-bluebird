@@ -1,6 +1,8 @@
 .bithoundrc
+.editorconfig
 .eslintignore
 .eslintrc.js
+.travis.yml
 
 /test/*
 
@@ -21,6 +23,3 @@ npm-debug.log
 
 # Git
 .git*
-
-# Utilities
-.travis.yml

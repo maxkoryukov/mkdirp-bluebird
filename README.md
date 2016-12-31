@@ -21,7 +21,7 @@ npm install --save mkdirp-bluebird
 ## API
 
 ```js
-var mkdirp = require('mkdirp-bluebird')
+const mkdirp = require('mkdirp-bluebird')
 ```
 
 ### mkdirp(dir, [, options])
