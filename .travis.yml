@@ -3,17 +3,15 @@ sudo: false
 language: node_js
 
 node_js:
-  - iojs
-  - 0.10
-  - 0.12
   - 4
   - 5
   - 6
+  - stable
 
 matrix:
-  include:
-    - node_js: stable
-      env: SENDCOVERAGE=1 RUNLINT=1
+  allow_failures:
+    - node_js: 7  # unstable upstream
+    - node_js: 8  # not on travis
 
 cache:
   directories:
@@ -23,15 +21,24 @@ before_install:
   - npm config set spin false
 
 install:
+  - npm install -g npm
   - npm install
   - npm install -g codecov
   - npm install -g bithound
 
 script:
-  - if [ $RUNLINT ]; then npm run lint; fi
+  - npm run lint
+  - npm run test
   - npm run coverage
-  - bithound check git@github.com:maxkoryukov/mkdirp-bluebird.git
-
-after_success:
-  # - if [ $SENDCOVERAGE ]; then codecov; fi
   - codecov
+  - bithound check git@github.com:$TRAVIS_REPO_SLUG.git
+
+deploy:
+  provider: npm
+  api_key:
+    secure: "Me2aPV73jw4BNjcEAVjLoCiS/BXhueSAzBG+gMXXO0XM5UmNP3gzC2oaU5Ve6rqasChnV+0ZDH3POS4+tQoYrxrAai1G6DRx+yNAC4lmKk4gPc9u+zCRGHuB5NFOylC/IVENYIvDyVL/uj36p/PiouIRQ2Kma5aTzKxzkg88aPXUa7if3MUbrQMkVOd00zENjg+g+d9bAOqDD+TA4OvZwnyVwaG5kQrpyDJOe7K5kjcvIYgS/3JKggefcbD0VxPwHENJvF/5W5e2zDXmGUT63G4WtuNKaCCWCZywWk/ipAEkMpl+qUTesOh10tziJ7HdiTYvRpfict6Ls/9tBT0yjimTUX94/T6lt6q3GWcP8nwHd56H2kvpO3Rs0mMAl00sMXh5j/D9YtACFoSit0VTgczT0dWCmnq1FpYBH8zD5isRSHcp30cPqa5oKMOBpifuwlSRgvjdRR5vTJIPEj4G12KH5z+sDuuuYFVAZGNjtSFs3ZTAZHEtbZm0pZeC0u4vDZeX7KRXT0+H7Nc4TDFOvM/MAPWPXtFu14T88J209TJGv/jCPVimWapFAr9uYUtorhHEmfRH08istzdsd+iJgijRIRfWwHZt05P8PRZSBR5XO1gXqWC/OQuW7575CJ6f05X1+C6MP+6hHgBQ+21XR7SodQrAhC76ZbZCiVf3Kwo="
+  email: maxkoryukov@gmail.com
+  on:
+    tags: true                            # published only for tags
+    node: 4                               # published only for one NPM version
+    repo: maxkoryukov/mkdirp-bluebird     # published only from ONE repo
