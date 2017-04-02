@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-var mkdirpromise  = require('..')
-var fs            = require('fs')
-var path          = require('path')
-var rimraf        = require('rimraf')
-var mkdirp        = require('mkdirp')
-var _             = require('lodash')
+const mkdirpromise  = require('..')
+const fs            = require('fs')
+const path          = require('path')
+const rimraf        = require('rimraf')
+const mkdirp        = require('mkdirp')
+const _             = require('lodash')
 
-var base          = path.join(__dirname, 'tmp')
+const base          = path.join(__dirname, 'tmp')
 
 describe('mkdirp-blubird', function(){
 	beforeEach(function (done) {
@@ -26,29 +26,29 @@ describe('mkdirp-blubird', function(){
 				// generating array of 2-6 folder names
 				// each folder name is from 'abcd...890', and its length is random (4, 25)
 
-				var subdirs = _.times(
+				const subdirs = _.times(
 					_.random(2,6),
 					function() {
 						return _('abcdefghijklmnopzABCDEF1234567890')
 							.sampleSize(_.random(4,25))
-							.join('');
+							.join('')
 					}
-				);
+				)
 
 
-				var file = _([base, subdirs])
+				const file = _([base, subdirs])
 					.flatten()
 					.wrap(_.spread(path.join))
-					.value()();
+					.value()()
 
 				mkdirpromise(file).then(function (made) {
 					// should call promise with first-level directory created:
 					expect(made).equal(path.resolve(path.join(base, subdirs[0])))
 
-					done();
+					done()
 				})
 			})
-		});
+		})
 	})
 
 	describe('should REJECT', function(){
@@ -62,16 +62,15 @@ describe('mkdirp-blubird', function(){
 
 		it('on path containing existing FILE', function() {
 
-			var filePath = path.join(base, 'plain-file.txt')
-			fs.closeSync(fs.openSync(filePath, 'w'));
-			var dirOverFilePath = path.join(filePath, 'foo');
+			const filePath = path.join(base, 'plain-file.txt')
+			fs.closeSync(fs.openSync(filePath, 'w'))
+			const dirOverFilePath = path.join(filePath, 'foo')
 
 			return expect(mkdirpromise(dirOverFilePath))
 				.to.eventually
 				.be.rejected
 				.and.be.an.instanceOf(Error)
 				.and.have.property('code', 'ENOTDIR')
-			;
 		})
 	})
 })

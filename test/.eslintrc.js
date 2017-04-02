@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
 exports = module.exports = {
-	"env": {
-		"mocha": true,
+	'env': {
+		'mocha': true,
 	},
-	"globals": {
+	'globals': {
 		// global access to assetion lib
-		"expect": true
+		'expect': true
 	}
 }
