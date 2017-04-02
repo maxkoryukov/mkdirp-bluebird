@@ -8,7 +8,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/mkdirp-bluebird/badge.svg)](https://snyk.io/test/npm/mkdirp-bluebird)
 [![Tips](http://img.shields.io/gittip/maxkoryukov.png)](https://www.gittip.com/maxkoryukov/)
 
-[Promise] version of [mkdirp]:
+[Bluebird's promise] version of [mkdirp]:
 
 > Like mkdir -p, but in node.js!
 
@@ -52,7 +52,7 @@ The option object will be directly passed to [mkdirp](https://github.com/substac
 
 ## License
 
-[MIT License](LICENSE) &copy; Koryukov Maksim
+[MIT License](LICENSE)
 
 ## Credits
 
