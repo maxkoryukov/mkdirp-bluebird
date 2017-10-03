@@ -2,11 +2,14 @@
 
 [![Build Status](https://travis-ci.org/maxkoryukov/mkdirp-bluebird.svg?branch=master)][travis-url]
 [![npm](https://img.shields.io/npm/v/mkdirp-bluebird.svg)](https://www.npmjs.com/package/mkdirp-bluebird)
+
 [![codecov](https://codecov.io/gh/maxkoryukov/mkdirp-bluebird/branch/master/graph/badge.svg)](https://codecov.io/gh/maxkoryukov/mkdirp-bluebird)
 [![bitHound Overall Score](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/badges/score.svg)](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird)
 [![bitHound Dependencies](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/badges/dependencies.svg)](https://www.bithound.io/github/maxkoryukov/mkdirp-bluebird/master/dependencies/npm)
+
 [![Known Vulnerabilities](https://snyk.io/test/npm/mkdirp-bluebird/badge.svg)](https://snyk.io/test/npm/mkdirp-bluebird)
-[![Tips](http://img.shields.io/gittip/maxkoryukov.png)](https://www.gittip.com/maxkoryukov/)
+
+[![Gratipay](https://img.shields.io/gratipay/project/mkdirp-bluebird.svg)](https://gratipay.com/mkdirp-bluebird/)
 
 [Bluebird's promise] version of [mkdirp]:
 
