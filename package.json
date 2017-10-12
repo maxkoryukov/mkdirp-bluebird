@@ -37,17 +37,17 @@
     "coverage": "`npm bin`/istanbul cover `npm bin`/_mocha"
   },
   "devDependencies": {
-    "chai": "3.x",
-    "chai-as-promised": "6.x",
-    "eslint": "^3.19.0",
-    "eslint-config-volebo": "^2.1.2",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.8.0",
+    "eslint-config-volebo": "^2.3.3",
     "istanbul": "0.4.x",
     "lodash": "^4.17.4",
-    "mocha": "3.x",
-    "rimraf": "^2.6.1"
+    "mocha": "^4.0.1",
+    "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
+    "bluebird": "^3.5.1",
     "mkdirp": ">=0.3.0"
   },
   "directories": {
