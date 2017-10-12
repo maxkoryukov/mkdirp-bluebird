@@ -1,3 +1,4 @@
+---
 sudo: false
 
 language: node_js
@@ -6,9 +7,11 @@ node_js:
   - 4
   - 5
   - 6
-  - stable
+  - 7
+  - 8
 
 matrix:
+  fast_finish: true
   allow_failures:
     - node_js: 7  # unstable upstream
     - node_js: 8  # not on travis
@@ -42,3 +45,9 @@ deploy:
     tags: true                            # published only for tags
     node: 4                               # published only for one NPM version
     repo: maxkoryukov/mkdirp-bluebird     # published only from ONE repo
+
+after_deploy:
+  # Send notification to Slack:
+  - curl -sL https://raw.githubusercontent.com/volebo/dev/master/scripts/im/slack-publish.sh | bash -s -
+
+...
